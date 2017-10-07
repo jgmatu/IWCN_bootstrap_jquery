@@ -9,5 +9,5 @@ Boostrap
 Jquery
 =======
 
-* [Correos](https://jgmatu.github.io/IWCN_bootstrap_jquery/correos/index.html)
+* [Correos](https://jgmatu.github.io/IWCN_bootstrap_jquery/correo/index.html)
 * [Flickr](https://jgmatu.github.io/IWCN_bootstrap_jquery/flicker/index.html)
