@@ -2,7 +2,13 @@ const data = {
       "Pepe" : "pepe@gmail.com",
       "Nacho" : "nacho@gmail.com",
       "Alejandro" : "alejando@gmail.com",
-      "Javi" : "javi@gmail.com"
+      "Javi" : "javi@gmail.com",
+      "Eva" : "eva@gmail.com",
+      "Lorena" : "lorena@gmail.com",
+      "Felix" : "felix@gmail.com",
+      "Ruben" : "ruben@gmail.com",
+      "Gonzalo" : "gonzalo@gmail.com",
+      "Jonathan" : "jonathan@gmail.com"
 }
 
 const MAXDELAY = 2000;
@@ -43,18 +49,35 @@ function setContactsUI() {
       $("#progress-email").hide();
       $("#email-send").hide();
       $("#contact").show();
+      $("#email-send").text("");
+      $('.progress-bar').css('width', 0+'%').attr('aria-valuenow', 0);
 }
 
 function setDialogSendEmail() {
-      var  date = new Date();
-      var time = date.toLocaleTimeString();
-      var day = date.toDateString();
-      var finger = $("#email-send").text() + " "  + day + " " + time;
+      var day = new Date().toDateString();
+      var time = new Date().toLocaleTimeString();
 
-      $("#email-send").text(finger);
+      var email = "<p> Email send to: " + $("#email").text() + '</p>';
+      $("#email-send").append(email);
+
+      var date = '<br/>' + day + " " + time;
+      $("#email-send").append(date);
+
       $("#email-send").dialog("open");
 }
+
+function addUsers() {
+      for (k in data) {
+            if (k == "Pepe") {
+                  $("#sel-user optgroup").append('<option selected="" value="'+k+'">'+k+'</option>');
+                  continue;
+            }
+            $("#sel-user optgroup").append('<option value="'+k+'">'+k+'</option>');
+      }
+}
+
 $(document).ready(function(){
+      addUsers();
       setContactsUI();
 
       $("#email-send").dialog({
